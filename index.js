@@ -4,22 +4,6 @@ const app = require('express')();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-/** is default by original docs */
-// io.origins('*.*'); 
-
-/** https://stackoverflow.com/questions/24058157/socket-io-node-js-cross-origin-request-blocked */
-// const io = require('socket.io')(http, {
-//     handlePreflightRequest: (req, res) => {
-//         const headers = {
-//             "Access-Control-Allow-Headers": "Content-Type, Authorization",
-//             "Access-Control-Allow-Origin": req.headers.origin, 
-//             "Access-Control-Allow-Credentials": true
-//         };
-//         res.writeHead(200, headers);
-//         res.end();
-//     }
-// });
-
 const cors = require('cors');
 const loadStore = require('./services/last-messages-store');
 
